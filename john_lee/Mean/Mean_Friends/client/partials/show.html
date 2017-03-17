@@ -1,0 +1,12 @@
+<h1>Show Friends</h1>
+
+<div>
+  First Name: {{friend.firstname}}</br>
+  Last Name: {{friend.lastname}}</br>
+  Birthday: {{friend.birthday| date : 'MM/dd/yyyy'}}</br>
+  User Added: {{friend.createdAt| date : 'MM/dd/yyyy'}}</br>
+</div>
+
+<form>
+  <input type="submit" value = 'Home' ng-click = "home()">
+</form>
