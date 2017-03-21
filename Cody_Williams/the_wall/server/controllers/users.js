@@ -8,7 +8,7 @@ module.exports = {
 				"error": "you are not authorized"
 			})
 		}
-		return req.session.user;
+		return res.json(req.session.user);
 	},
 	index: function(req, res){
 		if(!req.session.user){

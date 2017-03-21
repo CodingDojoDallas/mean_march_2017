@@ -3,7 +3,7 @@ app.factory('UserFactory', function($http){
 
 	factory.login = function(loginUser, callback){
 		$http.post('/sessions', loginUser).then(function(res){
-			if(!res.data.errors){
+			if(!res.data.error){
 				factory.current_user = res.data;
 			}
 			callback(res);
@@ -12,9 +12,10 @@ app.factory('UserFactory', function($http){
 
 	factory.session = function(callback){
 		$http.get('/sessions').then(function(res){
-			if(!res.data.errors){
+			if(!res.data.error){
 				factory.current_user = res.data;
 			}
+			console.log('outside factory if')
 			callback(res);
 		})
 	}
