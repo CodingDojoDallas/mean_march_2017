@@ -15,7 +15,7 @@ module.exports = {
 					return res.json(err);
 				}
 				if(!post){
-					return res.send({
+					return res.json({
 						"error": "invalid post id"
 					})
 				}
