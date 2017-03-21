@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quoting Dojo</title>
+  </head>
+  <body>
+    <h2>The Dojo Message Board</h2>
+    <form action="/post" method="post">
+        Your Name:<br>
+        <input type="text" name="user_name"></input><br>
+        Message:<br>
+        <input type="text" name="user_message"></input><br>
+        <input type="submit" value="Post Message" class="button"><br>
+    </form>
+
+    <% for (var i=0; i<posts.length; i++) { %>
+      <div id = "individual_post">
+        <h4><%= posts[i].name %> posted:</h4>
+        <h4><%= posts[i].message %></h4>
+      </div>
+
+      <div id="individual_comment">
+        <% for (var c=0; c<posts[i].comments.length;c++) { %>
+          <% var comment = posts[i].comments[c] %>
+          <h4><%= comment.name %> commented:</h4>
+          <h4><%= comment.comment %></h4>
+        <% } %>
+      </div>
+
+        <div id ="comment_box">
+          <form action="/comment/<%= posts[i]._id %>" method="post">
+              Your Name:<br>
+              <input type="text" name="comment_name"></input><br>
+              Comment:<br>
+              <input type="text" name="comment_message"></input><br>
+              <input type="submit" value="Comment" class="button"><br>
+          </form>
+        </div>
+    <% } %>
+
+  </body>
+
+</html>

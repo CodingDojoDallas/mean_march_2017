@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose Dashboard</title>
+  </head>
+  <body>
+    <div>
+      <a href="/animals/new">Make a new animal</a>
+    </div>
+    <div>
+      <% for (animal in animals) { %>
+        <a href="/animal/<%= animal.id %>"><%= animal.name %></a>
+      <% } %>
+    </div>
+  </body>
+</html>

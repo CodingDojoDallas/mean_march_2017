@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Controllers and Directives</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="factories/playerFactory.js"></script>
+      <script type="text/javascript" src="factories/teamFactory.js"></script>
+      <script type="text/javascript" src="controllers/playersController.js"></script>
+      <script type="text/javascript" src="controllers/teamsController.js"></script>
+      <script type="text/javascript" src="controllers/associationsController.js"></script>
+      <script type="text/javascript" src="config/routes.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="container" >
+        <div class="navbar">
+          <a href="#!/players">Players</a>
+          <a href="#!/teams">Team</a>
+          <a href="#!/associations">Asociations</a>
+        </div>
+        <div ng-view>
+
+        </div>
+    </div>
+  </body>
+</html>

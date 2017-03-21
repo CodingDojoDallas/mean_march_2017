@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Logged in <%= logged %></h1>
+
+	<h2>our information</h2>
+	<% for (var i = 0; i < users.length; i++) { %>
+	Name: <a href="/users/<%= i %>"><%= users[i].name %></a><br>
+	Age: <%= users[i].age %><br>
+	<% } %>
+
+	<form method="post" action="/users">
+		<input type="text" name="name">
+		<input type="integer" name="age">
+		<input type="submit" value="Add user">
+	</form>
+</body>
+</html>

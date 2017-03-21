@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular</title>
+	<script src='bower_components/angular/angular.js'></script>
+	<script src='app.js'></script>
+</head>
+<body>
+	<h3>
+		Add product:
+	</h3>
+	<div ng-controller="productController as pc">
+		<form>
+			<div>
+				<label>
+					Product Name: <input type="text" ng-model="pc.newProduct.name">
+				</label>
+			</div>
+			<div>
+				<label>
+					Product Price: $<input type="number" ng-model="pc.newProduct.price">
+				</label>
+			</div>
+			<button ng-click="pc.addProduct(pc.newProduct)">Add Product</button>
+		</form>
+		<p ng-if="pc.newProduct.name">Currently adding: {{ pc.newProduct.name }}</p>
+		<input type="text" ng-model="pc.productFilter">
+		<div>
+			<table ng-if="pc.products.length > 0">
+				<thead>
+					<tr>
+						<th>Name</th><th>Price</th><th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="product in pc.products | filter: pc.productFilter">
+						<td>{{ product.name }}</td><td>${{ product.price }}</td><td><button ng-click="pc.destroyProduct(product)">delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div ng-controller="orderController as oc">
+		<h3>
+			Order:
+		</h3>
+		<table ng-if="oc.products.length > 0">
+			<thead>
+				<tr>
+					<th>Name</th><th>Price</th><th>Qty Available</th><th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="product in oc.products | filter: oc.productFilter">
+					<td>{{ product.name }}</td><td>${{ product.price }}</td><td>{{ product.quantity }}</td><td><button ng-click="oc.orderProduct(product)">order</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

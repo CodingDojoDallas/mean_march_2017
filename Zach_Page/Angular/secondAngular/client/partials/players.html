@@ -1,0 +1,18 @@
+<!-- THis is the html for the players partial view -->
+<div ng-controller="PlayersController">
+  <form>
+    <label>Name</label>
+    <input type="text" ng-model="Player.name">
+    <button type="submit" ng-click="addPlayer()">Add Player</button>
+  </form>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <tr ng-repeat="player in players">
+      <td>{{player.name}}</td>
+      <td><button ng-click="removePlayer($index)">Remove Player</button></td>
+    </tr>
+  </table>
+</div>

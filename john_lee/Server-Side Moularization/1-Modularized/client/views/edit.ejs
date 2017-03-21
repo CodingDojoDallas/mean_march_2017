@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Animal Form</title>
+  </head>
+  <body>
+    <form action="/animals/<%= animal._id %>" method="post">
+        <h2>Edit the information on </h2>
+        <p>Name:</p>
+        <input type="text" name="name" value="<%= animal.name %>"></input><br>
+
+        <p>Type:</p>
+        <input type="text" name="type" value="<%= animal.type %>"></input><br>
+
+        <p>Food:</p>
+        <input type="text" name="food" value="<%= animal.food %>"></input><br>
+
+        <p>Age:</p>
+        <input type="text" name="age" value="<%= animal.age %>"></input><br>
+
+        <input type="submit" value="Edit" class="button"><br>
+    </form>
+  </body>
+</html>

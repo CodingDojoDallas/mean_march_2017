@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+  </head>
+  <body>
+    <h2>Here are the awesome quotes!</h2>
+    <% for (var x in quotes) { %>
+        <h4>"<%= quotes[x].quote %>"</h4>
+        <h4><%= quotes[x].name %> at <%= quotes[x].date %></h4>
+    <% } %>
+  </body>
+</html>

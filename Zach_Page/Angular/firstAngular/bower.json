@@ -1,0 +1,20 @@
+{
+  "name": "firstAngular",
+  "homepage": "https://github.com/pageza/mean_march_2017",
+  "authors": [
+    "Zach Page <zap.freelance@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3"
+  }
+}

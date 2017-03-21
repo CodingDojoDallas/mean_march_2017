@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Quoting Dojo</title>
+</head>
+<body>
+	<div>
+		<h1>Here are the awesome quotes!</h1>
+
+		<% quotes.forEach(function(quote) { %>
+			<p>
+				<%= quote.quote %>
+			</p>
+			<%= quote.likes %> likes 
+			<a href="/quotes/like/<%= quote._id %>">like</a>
+			<p>
+				- <%= quote.name %> at <%= moment(quote.createdAt).format('h:mma MMMM Do, YYYY') %> <a href='/quotes/destroy/<%= quote._id %>'>Remove</a>
+			</p>
+		<% }); %>
+	</div>
+	<div>
+		<a href="/">Back</a>
+	</div>
+</body>
+</html>

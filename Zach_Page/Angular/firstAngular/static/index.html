@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>First Angular Page</title>
+    <script src="/angular/angular.js" charset="utf-8"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>Favourite Food:</label>
+      <input type="text">
+      <button type="button">Add Food</button>
+    <label>Currently Typing: {{}}</label>
+  </div>
+      <div>
+        <input type="text" value="filter">
+        <div style="border: 2px solid black">
+          <!-- this will be the results from the filter  -->
+          {{}}
+        </div>
+      </div>
+  </body>
+</html>

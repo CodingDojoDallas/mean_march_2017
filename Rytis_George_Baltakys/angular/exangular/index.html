@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = 'bower_components/angular/angular.js'>
+	</script>
+	<script>
+	var app = angular.module('app', []);
+	app.controller('myController', ['$scope', function($scope){
+		//printController will show the current $scope
+		$scope.printController = function(istr){
+			console.log(istr)
+			console.log($scope);
+		}
+	}]);
+	</script>
+</head>
+<body>
+		<div ng-controller = "myController">
+			<input type="text" ng-model = 'myModel'>
+			<label>
+				ng-model = "myModel"
+			</label>
+			<p>
+				When we type in our input, the $scope.myModel object is created in our controller (two way binding), even though we didn't declare it in our intial model description
+			</p>
+			<div id ='model' ng-if = "myModel">
+				<span>
+					***INPUT: {{myModel}}***
+				</span>  
+				<b>
+					If you click the button, you will get the $scope object.  Find myModel in it!  Refresh the page and don't enter anything into the input field and see if you can find myModel..., and printController
+				</b>
+			</div>
+			<button ng-click = "printController('hey');">
+				Show our $scope!
+			 </button>
+		</div>
+</body>
+</html>

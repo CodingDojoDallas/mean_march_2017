@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='appModule'>
+<head>
+	<title>Angular</title>
+	<script src='bower_components/angular/angular.js'></script>
+	<script src='app.js'></script>
+</head>
+<body ng-init="dojo='ninja'">
+	<h1>{{ dojo }}</h1>
+	<h3>{{ 3.14 * 3.14 }}</h3>
+	<h3 ng-bind='3.333 * 2.222'></h3>
+	<div ng-controller='studentsController'>
+		<h3>Add a new student!</h3>
+		<form>
+			Name: <input type='text' ng-model='newStudent.name'>
+			Age: <input type='text' ng-model='newStudent.age'>
+			<input type='submit' value='add new student' ng-click='addStudent()'>
+		</form>
+		<ul>
+			<li ng-repeat='student in students'>
+				{{student.name}}, age: {{student.age}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

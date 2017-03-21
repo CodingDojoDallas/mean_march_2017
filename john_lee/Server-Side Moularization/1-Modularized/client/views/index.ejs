@@ -1,0 +1,22 @@
+<html>
+<body>
+    <h2>The Current Animals Registered:</h2>
+    <% for (var x in animals) { %>
+        <h4>Name: <%= animals[x].name %></h4>
+        <h4>Type: <%= animals[x].type %></h4>
+        <h4>Food: <%= animals[x].food %></h4>
+        <h4>Age: <%= animals[x].age %></h4>
+        <form action="/animals/edit/<%= animals[x]._id %>" method="post">
+            <input type="submit" value="Edit Animal" class="button"><br>
+        </form>
+
+        <form action="/animals/delete/<%= animals[x]._id %>" method="post">
+            <input type="submit" value="Delete Animal" class="button"><br>
+        </form>
+        <hr>
+    <% } %>
+    <form action="/animals/new" method="post">
+        <input type="submit" value="Add a new Animal" class="button"><br>
+    </form>
+</body>
+</html>

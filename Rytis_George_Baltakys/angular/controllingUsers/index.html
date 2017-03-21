@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = 'app'>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular</title>
+	<script src = 'bower_components/angular/angular.js'>
+	</script>
+	<script>
+	var app = angular.module('app', [])
+
+	app.factory('userFactory', function(){
+		var factory = {}
+		var users = [
+			{firstName: 'Rytis', lastName: 'Vakaras', favLang: 'JavaScript'},
+			{firstName: 'Eleanor', lastName: 'Vakaras', favLang: 'English'},
+			{firstName: 'Ruta', lastName: 'Diena', favLang: 'Lietuviu'}	
+		]
+
+		factory.getUsers = function(callback){
+			callback(users)
+		}
+
+		factory.addUser = function(newUser, callback){
+			users.push(newUser)
+			callback(users)
+		}
+
+		factory.destroy = function(index, callback){
+			users.splice(index, 1)
+			callback(users)
+		}
+
+		return factory
+	})
+
+	app.controller('userController', ['userFactory', function(userFactory){
+		var self = this
+
+		function setUsers(users) {
+			self.users = users;
+			self.newUser = {}
+		}
+
+		self.getUsers = function() {
+			userFactory.getUsers(setUsers)
+		}
+
+		self.getUsers()
+
+		self.addUser = function(newUser){
+			userFactory.addUser(newUser, setUsers)
+			self.newUser = {}
+		}
+		self.destroy = function(index){
+			userFactory.destroy(index, setUsers)
+		}
+	}]);
+	</script>
+</head>
+<body ng-controller="userController as uc">
+	<form>
+		<label>
+			First Name <input type="text" ng-model="uc.newUser.firstName">
+		</label>
+		<label>
+			Last Name <input type="text" ng-model="uc.newUser.lastName">
+		</label>
+		<label>
+			Favorite Language <input type="text" ng-model="uc.newUser.favLang">
+		</label>
+		<button ng-click="uc.addUser(uc.newUser)">Create User</button>
+	</form>
+	<p ng-if="uc.newUser.firstName">Currently adding: {{ uc.newUser.firstName }}</p>
+	<div>
+		Filer: <input type="text" ng-model="uc.userFilter">
+		<ul>
+			<li ng-repeat="user in uc.users | filter: uc.userFilter">{{ user.firstName }} {{ user.lastName }} {{ user.favLang }} <button ng-click="uc.destroy($index)">delete</button></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "secondAngular",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Zach Page <zap.freelance@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pageza/mean_march_2017",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3"
+  }
+}
