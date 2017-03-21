@@ -1,0 +1,33 @@
+<div ng-controller="PostsController as PC" ng-init="PC.index(); UC.session()">
+	<div>
+		<h1>Welcome, {{UC.current_user.name}}</h1>
+	</div>
+	<div>
+		<form ng-submit="PC.create(PC.newPost)">
+			<div>
+				<textarea ng-model="PC.newPost.post"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="Create Post">
+			</div>
+		</form>
+	</div>
+	<div ng-repeat="post in PC.posts">
+		<h3>{{post.author}} - {{post.createdAt}}</h3>
+		<p>{{post.post}}</p>
+		<div ng-repeat="comment in post.comments" style="margin-left: 5%;">
+			<h4>{{comment.author}} - {{comment.createdAt}}</h4>
+			<p>{{comment.comment}}</p>
+		</div>
+		<div style="margin-left: 5%;">
+			<form ng-submit="PC.createComment(PC.newComment[$index], post._id, $index)">
+				<div>
+					<textarea ng-model="PC.newComment[$index].comment"></textarea>
+				</div>
+				<div>
+					<input type="submit" value="Post Comment">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

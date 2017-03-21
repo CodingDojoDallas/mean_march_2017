@@ -1,0 +1,11 @@
+<div ng-controller="PostsController as PC" ng-init="PC.index()">
+test
+	<div ng-repeat="post in PC.posts">
+		<h3>{{post.post}}</h3>
+		<p>By {{post.author}}</p>
+		<div ng-repeat="comment in post.comments">
+			<h5>{{comment.comment}}</h5>
+			<p>By {{comment.author}}</p>
+		</div>
+	</div>
+</div>

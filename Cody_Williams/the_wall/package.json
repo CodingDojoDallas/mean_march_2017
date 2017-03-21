@@ -1,5 +1,5 @@
 {
-  "name": "full_mean",
+  "name": "the_wall",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,6 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "mongoose": "^4.9.0"
+    "mongoose": "^4.9.1"
   }
 }

@@ -3,7 +3,20 @@ var User = mongoose.model('User');
 var bcrypt = require('bcryptjs')
 
 module.exports = {
+	//helper function for checking session, to be invoked by angular
+	//unfortunately this cannot be envoked with 'this'
+	session: function(req, res){
+		if(!req.session.user){
+			return res.send({error: "You are not logged in."})
+		}
+		return req.session.user;
+	},
 	index: function(req, res){
+		if(!req.session.user){
+			return res.json({
+				"error": "not authorized"
+			})
+		}
 		User.find({}).exec(function(err, doc){
 			if(err){
 				return res.json(err)
@@ -11,6 +24,7 @@ module.exports = {
 			return res.json(doc);
 		})
 	},
+	//no need to check session here
 	login: function(req, res){
 		var isValid = true;
 		User.findOne({email: req.body.email}).exec(function(err, doc){
@@ -20,7 +34,10 @@ module.exports = {
 			if(!doc){
 				isValid = false;
 			} else {
+				//successfull login
 				if(bcrypt.compareSync(req.body.password, doc.password)){
+					req.session.user = doc;
+					console.log(req.session)
 					return res.json(doc);
 				} else {
 					isValid = false;
@@ -34,6 +51,20 @@ module.exports = {
 						}
 					}
 				})
+			}
+		})
+	},
+	logout: function(req, res){
+		if(!req.session.user){
+			return res.json({
+				"error": "not authorized"
+			})
+		}
+		req.session.destroy(function(err){
+			if(err){
+				console.log(err)
+			} else {
+				res.json({success: true})
 			}
 		})
 	},
@@ -71,6 +102,11 @@ module.exports = {
 		})
 	},
 	update: function(req, res){
+		if(!req.session.user){
+			return res.json({
+				"error": "not authorized"
+			})
+		}
 		User.findById(req.params.id).exec(function(err, doc){
 			if(err){
 				return res.json({
@@ -90,6 +126,11 @@ module.exports = {
 		})
 	},
 	destroy: function(req, res){
+		if(!req.session.user){
+			return res.json({
+				"error": "not authorized"
+			})
+		}
 		User.findByIdAndRemove(req.params.id).exec(function(err, doc){
 			if(err){
 				return res.json(err);

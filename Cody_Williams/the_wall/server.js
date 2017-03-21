@@ -1,5 +1,5 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+var bp = require('body-parser');
 var session = require('express-session');
 
 var app = express();
@@ -10,13 +10,11 @@ app.use(session({
 	saveUninitialized: true,
 	rolling: true
 }))
-
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client'))
 app.use(express.static(__dirname + '/bower_components'));
+app.use(bp.json());
 
-app.use(bodyParser.json());
-
-require('./server/config/mongoose.js');
+require('./server/config/mongoose');
 require('./server/config/routes')(app);
 
 app.listen(8000, function(){

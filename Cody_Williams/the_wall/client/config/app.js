@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'ngCookies']);
+var app = angular.module('app', ['ngRoute']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -6,12 +6,9 @@ app.config(function($routeProvider){
 		templateUrl: 'partials/users_new.html',
 		controller: 'UsersController as UC'
 	})
-	.when('/success', {
-		templateUrl: 'partials/users_index.html',
-		controller: 'UsersController as UC'
-	})
-	.when('/posts', {
+	.when('/wall', {
 		templateUrl: 'partials/posts_index.html',
 		controller: 'UsersController as UC'
 	})
-})
+	.otherwise('/')
+});
