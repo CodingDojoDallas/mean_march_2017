@@ -15,11 +15,9 @@ app.factory('UserFactory', function($http){
 			if(!res.data.error){
 				factory.current_user = res.data;
 			}
-			console.log('outside factory if')
 			callback(res);
 		})
 	}
-
 
 	return factory;
 })

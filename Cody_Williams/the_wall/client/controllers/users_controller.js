@@ -1,28 +1,25 @@
 app.controller('UsersController', function(UserFactory, $location){
 	var self = this;
+	self.registrationErrors = [];
 
 	self.session = function(){
-		console.log('invoking session')
 		UserFactory.session(function(res){
-			console.log(res);
 			if(res.data.error){
-				console.log('inside controller if')
-				$location.url('/')
+				$location.url('/');
 			} else {
 				self.current_user = res.data;
-				console.log('CU:', self.current_user);
 			}
 		})
 	}
 
 	self.login = function(loginUser){
+		self.registrationErrors = [];
 		UserFactory.login(loginUser, function(res){
-			console.log(res)
 			if(!res.data.error){
 				self.current_user = res.data;
-				$location.url('/wall')
+				$location.url('/wall');
 			} else {
-				//handle validation errors
+				self.registrationErrors.push(res.data.error);
 			}
 		})
 	}
