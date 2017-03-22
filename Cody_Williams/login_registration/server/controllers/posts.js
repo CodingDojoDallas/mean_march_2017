@@ -4,12 +4,6 @@ var User = mongoose.model('User');
 
 module.exports = {
 	index: function(req, res){
-		console.log(req.session);
-		if(!req.session.user_id){
-			return res.json({
-				"errors": "not authorized"
-			})
-		}
 			Post.find({}).populate('comments').exec(function(err, doc){
 			if(err){
 				return res.json(err);
