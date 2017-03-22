@@ -1,15 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
 
 var app = express();
-
-app.use(session({
-	secret: 'someSecretTokenHere',
-	resave: false,
-	saveUninitialized: true,
-	rolling: true
-}))
 
 app.use(express.static(__dirname + '/client'));
 app.use(express.static(__dirname + '/bower_components'));
