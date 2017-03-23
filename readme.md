@@ -25,7 +25,9 @@ https://codingdojo-dallas.slack.com/files/katemoc/F427ZQZPY/github_workflow_v4.p
 [MEAN - Intro to Angular](https://www.youtube.com/edit?o=U&video_id=bN4tjw95Juc "MEAN - Intro to Angular") <br>
 [MEAN - Angular Factories](https://www.youtube.com/edit?o=U&video_id=acn5VKB4Myk "MEAN - Angular Factories") <br>
 [MEAN - Angular Routes and $scope vs. this](https://www.youtube.com/edit?o=U&video_id=qJvmVki4OvU "MEAN - Angular Routes and $scope vs. this") <br>
-
+[MEAN - Belt Review (server-side)](https://youtu.be/c7qqqJ_av5A "MEAN - Belt Review (server-side)") <br>
+[MEAN - Belt Review (client-side)](https://youtu.be/mGg3SLj-dD8 "MEAN - Belt Review (client-side)") <br>
+[MEAN - Deployment](https://youtu.be/mGg3SLj-dD8 "MEAN - Deployment") <br>
 
 # Schedule
 
