@@ -1,0 +1,12 @@
+#chatbox{
+	display:none;
+	width:90%;
+	margin:0 auto;
+	border: 1px solid silver;
+	height: 300px;
+}
+#message{
+	width:90%;
+	margin: 0 auto;
+	display:none;
+}

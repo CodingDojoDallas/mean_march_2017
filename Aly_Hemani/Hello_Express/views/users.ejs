@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title>Users</title>
+</head>
+<body>
+    <h2>Here are all the users:</h2>
+    <% for (var i = 0; i < users.length; i++) { %>
+        <h3>Name: <%= users[i].name %></h3>
+        <h4>Email: <%= users[i].email %></h4>
+        <hr>
+    <% } %>
+</body>
+</html>

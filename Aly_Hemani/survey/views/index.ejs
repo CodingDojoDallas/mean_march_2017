@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Hello <%= user %></h1>
+	<ul>
+		<% for(var i = 0; i <languages.length; i++) { %>
+		<a href="/languages/<%= i %>"><li><%= languages[i] %></li></a>
+		<% } %>
+	</ul>
+	<h3>Add a new langauge</h3>
+	<form action="/languages" method="post">
+		<input type="text" name="language">
+		<div>
+			<input type="submit" value="Add Language">
+		</div>
+	</form>
+</body>
+</html>

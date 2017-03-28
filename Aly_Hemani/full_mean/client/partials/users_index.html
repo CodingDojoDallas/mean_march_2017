@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div ng-init="UC.index()">
+		<ul ng-repeat="user in UC.users">
+			<li>Name: {{user.name}} Email: {{user.email}}</li>
+		</ul>
+		<a href="#!/users/new">Add a new user</a>
+	</div>
+</body>
+</html>

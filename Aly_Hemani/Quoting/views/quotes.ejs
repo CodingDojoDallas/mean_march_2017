@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quotes</title>
+	<style type="text/css">
+		a{
+			color:black;
+			text-decoration:none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Here are some awesome quotes!</h1>
+	<% for(var i = 0; i < users.length; i++){ %>
+		<div>
+		<p>" <%=users[i].name %> "</p>
+		<p> <%=users[i].quote %></p>
+		</div>
+	<% } %>
+	<button><a href="/">Go Back</a></button>
+</body>
+</html>

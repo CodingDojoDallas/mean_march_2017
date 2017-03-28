@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular Routes</title>
+	<script src="angular/angular.js"></script>
+	<script src="angular-route/angular-route.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="LocationController as LC">
+		<button ng-click="LC.loadPartialOne()">Partial 1</button>
+		<button ng-click="LC.loadPartialTwo()">Partial 2</button>
+	</div>
+	<div class="container" ng-view>
+		
+	</div>
+</body>
+</html>

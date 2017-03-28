@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>First Angular Project</title>
+	<script src="angular/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="UsersController">
+		<input type="text" ng-model="newUser.name">
+		<button ng-click="addUser(newUser)">Add User</button>
+		<ul>
+			<li ng-repeat="user in users">
+				{{user.name}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

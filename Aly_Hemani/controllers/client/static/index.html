@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+	<title>Products</title>
+	<script src="angular/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="ProductsController">
+		<input type="text" ng-model="newProduct">
+		<button ng-click="addProduct(newProduct)">
+		Add Product
+		</button>
+		<div>
+		Currently Typing: {{newProduct}}
+		</div>
+		<h2>Food Items</h2>
+		Filter: <input type="text" ng-model="productFilter">
+		<div ng-repeat="product in products | filter: productFilter track by $index">
+			{{product}}
+		</div>
+	</div>
+</body>
+</html>

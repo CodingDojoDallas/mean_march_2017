@@ -1,0 +1,21 @@
+{
+  "name": "full_mean",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Aly Hemani <alyhemani@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.6.3",
+    "angular": "^1.6.3"
+  }
+}

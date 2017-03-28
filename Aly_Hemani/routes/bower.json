@@ -1,0 +1,21 @@
+{
+  "name": "routes",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Aly Hemani <alyhemani@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3"
+  }
+}

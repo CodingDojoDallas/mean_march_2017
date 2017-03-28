@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Users</title>
+	<script src="angular/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="UsersController">
+		<label>First Name:</label>
+		<input type="text" ng-model="newUser.first_name">
+		<label>Last Name:
+		<input type="text" ng-model="newUser.last_name">
+		<label>Favorite Language:</label>
+		<input type="text" ng-model="newUser.fav_language">
+		<button ng-click="addUser(newUser)">Create User</button>
+		<div>
+			<p>
+				Search:<input type="text" ng-model="UserFilter">
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th><a href="#" ng-click="sortType = 'first_name'; sortReverse = !sortReverse">First Name</a></th>
+						<th><a href="#" ng-click="sortType = 'last_name'; sortReverse = !sortReverse">Last Name</a></th>
+						<th><a href="#" ng-click="sortType = 'first_name'; sortReverse = !sortReverse">Favorite Language</a></th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users | filter:UserFilter | orderBy:sortType:sortReverse">
+						<td>{{user.first_name}}</td>
+						<td>{{user.last_name}}</td>
+						<td>{{user.fav_language}}</td>
+						<td><button ng-click="deleteUser(user)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

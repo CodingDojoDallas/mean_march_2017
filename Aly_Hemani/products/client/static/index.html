@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Products with Factories</title>
+	<script src="angular/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="ProductsController">
+		<div>
+			<form ng-submit="create(newProduct)">
+				<div>
+					<label>Product:</label>
+					<input type="text" ng-model="newProduct.product">
+				</div>
+				<div>
+					<label>Price:</label>
+					<input type="number" min="0" step="0.01" ng-model="newProduct.price">
+				</div>
+				<div>
+					<input type="submit" value="Add Product">
+				</div>
+			</form>
+		</div>
+		<div>
+		<label>Search:</label>
+		<input type="text" ng-model="productSearch">
+		<table>
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="product in products | filter:productSearch">
+					<td>{{product.product}}</td>
+					<td>{{product.price}}</td>
+					<td><button ng-click="destroy(product)">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>

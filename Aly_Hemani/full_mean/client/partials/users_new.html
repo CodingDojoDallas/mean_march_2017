@@ -1,0 +1,16 @@
+<div>
+	<form ng-submit="UC.create(UC.newUser)">
+		<div>
+			<label>Name:</label>
+			<input type="text" ng-model="UC.newUser.name">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="text" ng-model="UC.newUser.email">
+		</div>
+		<div>
+			<input type="submit" value="Add User">
+		</div>
+	</form>
+	<p ng-repeat="error in UC.errors">{{error}}</p>
+</div>

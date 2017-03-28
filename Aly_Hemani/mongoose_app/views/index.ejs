@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Add a user</h1>
+	<form action="/users" method="post">
+		<div>
+			<label>Name:</label>
+			<input type="text" name="name">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="text" name="email">
+		</div>
+			<input type="submit" value="Add User">
+	</form>
+	<div>
+		<h1>Users currently in Database</h1>
+		<ul>
+			<% for(var i = 0; i < users.length; i++){ %>
+				<a href="/users/<%= users[i]._id %>"><li><%= users[i].name %></li></a>
+			<% } %>
+		</ul>
+	</div>
+</body>
+</html>

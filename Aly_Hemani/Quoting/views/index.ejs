@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quoting Dojo Redux</title>
+		<style type="text/css">
+		a{
+			color:black;
+			text-decoration:none;
+		}
+		</style>
+</head>
+<body>
+	<h1>Welcome to QuotingDojo</h1>
+	<form action="/quotes" method="post">
+		<div>
+			<label>Your Name:</label>
+			<input type="text" name="name">
+		</div>
+		<div>
+			<label>Your Quote:</label>
+			<textarea name="quote" rows="4" cols="30"></textarea>
+		</div>
+		<input type="submit" value="Add my quote!">
+	</form>
+	<button><a href="/quotes">Skip to quotes</a></button>
+</body>
+</html>
