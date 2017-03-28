@@ -1,0 +1,8 @@
+<h1>Edit Friends</h1>
+<form>
+   First Name: <input type='text' default="firstname" ng-model = 'friend.firstname'><br>
+   Last Name: <input type='text'default="lastname" ng-model = 'friend.lastname'><br>
+   Birthday: <input type='date' default="birthday | date : 'mm/dd/yyyy'" ng-model = 'friend.birthday'><br>
+   <input type='submit' value='Update' ng-click='updateFriend()'><br>
+   <input type="submit" value = 'Home' ng-click = "home()">
+</form>

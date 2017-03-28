@@ -1,0 +1,23 @@
+<input type="text" ng-model = 'userFilter'>
+<a ng-href = '#!/new/'>
+  <button>Create Friend</button>
+</a></br>
+<table>
+  <thead>
+    <tr>
+      <td><a href="" ng-click="sortType = 'last_name'; sortReverse = !sortReverse">Friend</a></td>
+      <td><a href="" ng-click="sortType = 'birthday'; sortReverse = !sortReverse">Birthday</a></td>
+      <td>Show</td>
+      <td>Update</td>
+      <td>Delete</td>
+    <tr>
+  </thead>
+
+  <tr ng-repeat = "friend in friends | orderBy:sortType:sortReverse | filter:userFilter">
+    <td>{{friend.firstname}} {{friend.lastname}}</td>
+    <td>{{friend.birthday | date : 'MM/dd/yyyy'}}</td>
+    <td><a href="" ng-click="show(friend._id)">Show</a></td>
+    <td><a href="" ng-click="edit(friend._id)">Edit</a></td>
+    <td><a href="" ng-click="delete(friend._id)">Delete</a></td>
+  </tr>
+</table>

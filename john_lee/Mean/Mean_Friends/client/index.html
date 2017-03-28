@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MEAN Friends</title>
+    <!-- Use the Bower Components-->
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <!-- Angular components -->
+      <!-- App is the "Routes" for the page -->
+    <script src="assets/app.js" charset="utf-8"></script>
+      <!-- Refer to the the factory-->
+    <script src='assets/factories/friendsFactory.js'></script>
+      <!-- Refer to the controllers-->
+    <script src="assets/controllers/main_Controller.js" charset="utf-8"></script>
+    <script src="assets/controllers/edit_Controller.js" charset="utf-8"></script>
+    <script src="assets/controllers/new_Controller.js" charset="utf-8"></script>
+
+
+
+
+  </head>
+  <!--ng-app lets the body use the routes -->
+  <body ng-app="app">
+
+    <!--Where all the partials show up in -->
+    <div ng-view>
+    </div>
+  </body>
+
+</html>

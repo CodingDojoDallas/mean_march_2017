@@ -1,0 +1,20 @@
+<a href="#!/players">Players</a>
+<a href="#!/teams">Teams</a>
+<a href="#!/associations">Associations</a>
+<form>
+   Name: <input type='text' ng-model='newPlayer.name'>
+   <input type='submit' value='Add Player' ng-click='addPlayer(newPlayer)'>
+</form>
+Find a Player: <input type="search" ng-model="q" placeholder="Filter...">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="player in players | filter:q">
+    <td>{{ player.name }}</td>
+    <td><button ng-click='deletePlayer($index)'>Remove Player</button></td>
+  </tr>
+</table>
