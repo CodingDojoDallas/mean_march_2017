@@ -1,0 +1,39 @@
+<div ng-controller='UsersController as UC'>
+	<p>
+		<a href="#!/">Dashboard</a> | <a href="#!/products">Products</a> | Orders | <a href="#!/customers">Customers</a> | <a href="#!/settings">Settings</a>
+	</p>
+	<p ng-repeat="error in OC.errors">{{error}}</p>
+	<form ng-submit="OC.create(OC.newOrder)">
+		<label>Customer:
+			<select ng-model="OC.newOrder.user" ng-init="UC.index()">
+				<option ng-repeat="user in UC.users | orderBy:name" value="{{ user._id }}">{{ user.name }}</option>
+			</select>
+		</label>
+		<label>Order:
+			<select ng-model="OC.newOrder.quantity">
+				<option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10] track by $index">{{ n }}</option>
+			</select>
+			<span ng-controller='ProductsController as PC'>
+				<select ng-model="OC.newOrder.product" ng-init="PC.index()">
+					<option ng-repeat="product in PC.products | orderBy:name" value="{{ product._id }}">{{ product.name }}</option>
+				</select>
+			</span>
+		</label>
+		<button>Add</button>
+	</form>
+	<p>
+		<input type="text" ng-model="order_filter" placeholder="filter...">
+		<table ng-init="OC.index()">
+			<thead>
+				<tr>
+					<th>Customer Name</th><th>Product</th><th>Quantity</th><th>Date</th><th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr  ng-repeat="order in OC.orders | filter: order_filter | orderBy:'createdAt'">
+					<td>{{ order._user.name }}</td><td>{{ order.products[0].product.name }}</td><td>{{ order.products[0].quantity }}</td><td>{{ order.createdAt | date:"M/dd/yyyy 'at' h:mma" }}</td><td><button ng-click="OC.delete(order._id)">delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+</div>

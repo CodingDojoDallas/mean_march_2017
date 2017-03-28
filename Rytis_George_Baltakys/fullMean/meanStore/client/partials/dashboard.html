@@ -1,0 +1,23 @@
+<div ng-init="DC.index()">
+	<p>
+		Dashboard | <a href="#!/products">Products</a> | <a href="#!/orders">Orders</a> | <a href="#!/customers">Customers</a> | <a href="#!/settings">Settings</a>
+	</p>
+	<p>
+		<input type="text" ng-model="product_filter" placeholder="filter...">
+		<ul>
+			<li ng-repeat="product in DC.products | filter: product_filter | orderBy:'name'">{{ product.name }} ({{ product.quantity }} left) <a href="" ng-click="PC.delete(product._id)">delete</a></li>
+		</ul>
+	</p>
+	<p>
+		Recent orders
+		<ul>
+			<li ng-repeat="order in DC.orders | orderBy:'createdAt'">{{ order._user.name }} bougth {{ order.products[0].quantity }} {{ order.products[0].product.name }}s (<span am-time-ago="order.createdAt"></span>)</li>
+		</ul>
+	</p>
+	<p>
+		New Customers
+		<ul>
+			<li ng-repeat="user in DC.users | orderBy:'createdAt'">{{ user.name }} - joined the store. (<span am-time-ago="user.createdAt"></span>)</li>
+		</ul>
+	</p>
+</div>

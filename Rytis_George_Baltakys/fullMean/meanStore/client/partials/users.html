@@ -1,0 +1,21 @@
+<div>
+	<p>
+		<a href="#!/">Dashboard</a> | <a href="#!/products">Products</a> | <a href="#!/orders">Orders</a> | Customers | <a href="#!/settings">Settings</a>
+	</p>
+	<p>
+		<input type="text" ng-model="user_filter" placeholder="filter...">
+		<ul ng-init="UC.index()">
+			<li ng-repeat="user in UC.users | filter: user_filter | orderBy:'name'">{{ user.name }} - added on: {{ user.createdAt | date:"M/dd/yyyy 'at' h:mma" }} - <span am-time-ago="user.createdAt"></span> <a href="" ng-click="UC.delete(user._id)">remove</a></li>
+		</ul>
+	</p>
+	<p ng-repeat="error in UC.errors">{{error}}</p>
+	<form ng-submit="UC.create(UC.newUser)">
+		<label>Name:
+			<input type="text" ng-model="UC.newUser.name" placeholder="name">
+		</label>
+		<button>Add</button>
+	</form>
+	<p>
+		<button ng-click="UC.goBack()">Go back</button>
+	</p>
+</div>

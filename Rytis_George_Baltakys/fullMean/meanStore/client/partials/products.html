@@ -1,0 +1,21 @@
+<div>
+	<p>
+		<a href="#!/">Dashboard</a> | Products | <a href="#!/orders">Orders</a> | <a href="#!/customers">Customers</a> | <a href="#!/settings">Settings</a>
+	</p>
+	<p>
+		<input type="text" ng-model="product_filter" placeholder="filter...">
+		<ul ng-init="PC.index()">
+			<li ng-repeat="product in PC.products | filter: product_filter | orderBy:'name'">{{ product.name }} ({{ product.quantity }} left) <a href="" ng-click="PC.delete(product._id)">delete</a></li>
+		</ul>
+	</p>
+	<p ng-repeat="error in PC.errors">{{error}}</p>
+	<form ng-submit="PC.create(PC.newProduct)">
+		<label>Name:
+			<input type="text" ng-model="PC.newProduct.name" placeholder="name">
+		</label>
+		<label>Quantity:
+			<input type="number" ng-model="PC.newProduct.quantity">
+		</label>
+		<button>Create</button>
+	</form>
+</div>
