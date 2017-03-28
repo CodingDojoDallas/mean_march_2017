@@ -1,0 +1,29 @@
+<div ng-controller="PostsController as PC" ng-init="PC.index();UC.session()">
+	<div class="userbar">
+		<h3>Current User: {{UC.current_user.firstname}}</h3>
+		<a href="" ng-click="UC.logout()">Logout</a>
+	</div>
+
+	<div>
+		<h3>Post a Message</h3>
+		<form ng-submit="PC.create(PC.newPost)">
+			<textarea ng-model="PC.newPost.post"></textarea><br>
+			<input type="submit" vlaue="Create Post"><br>
+		</form>
+	</div>
+
+	<div ng-repeat="post in PC.posts | orderBy:'-createdAt'">
+		<h3><strong>{{post.author}}</strong> - {{post.createdAt | date: 'MM/dd/yyyy @ h:mma'}}</h3>
+		{{post.post}}<br>
+		<div ng-repeat="comment in post.comments | orderBy:'createdAt'">
+			<strong>{{comment.author}}</strong> - {{comment.createdAt | date: 'MM/dd/yyyy @ h:mma'}}<br>
+			{{comment.comment}}
+		</div>
+		<h3>Post a Comment</h3>
+		<form ng-submit="PC.createComment(PC.newComment[$index], post._id, $index)">
+			<textarea ng-model="PC.newComment[$index].comment"></textarea><br>
+			<input type="submit" vlaue="Create Comment"><br>
+		</form>
+	</div>
+
+</div>
